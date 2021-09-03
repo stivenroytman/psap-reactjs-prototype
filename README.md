@@ -8,7 +8,7 @@ To prototype a tool for running PSAP experiments online.
 
 1. nodejs
 2. npm
-3. maketools
+3. make
 
 ## Installation
 ```bash
