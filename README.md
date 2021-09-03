@@ -8,12 +8,16 @@ To prototype a tool for running PSAP experiments online.
 
 1. nodejs
 2. npm
-3. make
 
 ## Installation
 ```bash
-make
+# manual option
+{yarn install || npm install} && yarn install
+cd psap-express-server; npm install
+
+make # optional easier route, if you have make installed
 ```
+
 
 ## Usage
 
