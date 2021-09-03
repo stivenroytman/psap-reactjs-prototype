@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 const testPlayerName = "Jotaro";
 const testPlayerImgURL = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.KWPubfNx_S5oxERTzP5uvAHaHF%26pid%3DApi&f=1";
@@ -69,16 +69,21 @@ const Control = (props) => {
 
 function App() {
 
+  const [socket, setSocket] = useState(
+    new WebSocket(`ws://localhost:4000/${document.URL.split('/').pop()}`)
+  )
+  socket.onmessage = msg => {
+    console.log(msg)
+  }
+  const [shields, setShields] = useState(0);
   const [clicks, setClicks] = useState(0);
   const [points, setPoints] = useState({
     player: 0,
     opponent: 0
   });
-  const [shields, setShields] = useState(0);
 
   return (
     <div className="grid-container">
-
       <div id="left">
         <Profile
           id="player"
@@ -92,9 +97,9 @@ function App() {
       <div id="center">
         <Control 
           clicks={clicks}
-          earn={()=>{}}
-          steal={()=>{}}
-          defend={()=>{}} 
+          earn={()=>{socket.send('earn')}}
+          steal={()=>{socket.send('steal')}}
+          defend={()=>{socket.send('defend')}} 
         />
       </div>
 
@@ -106,7 +111,7 @@ function App() {
           points={points.opponent}
         />
       </div>
-    
+
     </div>
   );
 }
