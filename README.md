@@ -12,7 +12,7 @@ To prototype a tool for running PSAP experiments online.
 ## Installation
 ```bash
 # manual option
-{yarn install || npm install} && yarn install
+yarn install || npm install
 cd psap-express-server; npm install
 
 make # optional easier route, if you have make installed
@@ -23,7 +23,7 @@ make # optional easier route, if you have make installed
 
 Starting the frontend from repository root
 ```bash
-yarn start
+yarn start || npm start
 ```
 
 Start the backend from repository root
