@@ -30,3 +30,8 @@ Start the backend from repository root
 ```bash
 cd psap-express-server; node server.js
 ```
+
+If you're the Tony Hawk of being a l334 h4x0rrr you can do this to kill two birds with one stone, __BOOYA__
+```bash
+npm start & cd psap-express-server; npm start
+```
